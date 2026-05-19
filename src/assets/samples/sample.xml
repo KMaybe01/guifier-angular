@@ -1,0 +1,14 @@
+<root>
+  <name>Alice</name>
+  <age>25</age>
+  <isStudent>true</isStudent>
+  <hobbies>
+    <item>reading</item>
+    <item>painting</item>
+  </hobbies>
+  <address>
+    <city>London</city>
+    <zipcode>SW1A 1AA</zipcode>
+    <country>United Kingdom</country>
+  </address>
+</root>

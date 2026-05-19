@@ -1,0 +1,11 @@
+name = "Alice"
+age = 25
+isStudent = true
+
+[hobbies]
+values = ["reading", "painting"]
+
+[address]
+city = "London"
+zipcode = "SW1A 1AA"
+country = "United Kingdom"
