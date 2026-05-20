@@ -39,7 +39,7 @@
         "@angular/build": "^20.0.0",
         "@angular/cli": "^20.0.0",
         "@angular/compiler-cli": "^20.0.0",
-        "@biomejs/biome": "2.4.15",
+        "@biomejs/biome": "^2.4.15",
         "@types/js-yaml": "^4.0.9",
         "@types/lodash-es": "^4.17.12",
         "autoprefixer": "^10.4.21",
