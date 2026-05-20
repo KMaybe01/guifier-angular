@@ -1,20 +1,20 @@
 import {
+  type AfterViewInit,
   Component,
-  input,
-  output,
+  type ElementRef,
   effect,
+  input,
+  type OnDestroy,
+  output,
   viewChild,
-  ElementRef,
-  OnDestroy,
-  AfterViewInit,
 } from '@angular/core'
+import { javascript } from '@codemirror/lang-javascript'
+import { json } from '@codemirror/lang-json'
+import { xml } from '@codemirror/lang-xml'
+import { yaml } from '@codemirror/lang-yaml'
+import type { Extension } from '@codemirror/state'
 import { EditorView } from '@codemirror/view'
 import { basicSetup } from 'codemirror'
-import { json } from '@codemirror/lang-json'
-import { yaml } from '@codemirror/lang-yaml'
-import { xml } from '@codemirror/lang-xml'
-import { javascript } from '@codemirror/lang-javascript'
-import type { Extension } from '@codemirror/state'
 import type { DataType } from '@/app/utils/guifier.utils'
 
 @Component({

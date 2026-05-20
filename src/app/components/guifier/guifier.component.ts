@@ -1,7 +1,7 @@
 import { Component, input, output } from '@angular/core'
-import { ObjectContainerComponent } from './containers/object-container.component'
-import { ArrayContainerComponent } from './containers/array-container.component'
 import type { GuifierData } from '@/app/utils/guifier.utils'
+import { ArrayContainerComponent } from './containers/array-container.component'
+import { ObjectContainerComponent } from './containers/object-container.component'
 
 @Component({
   selector: 'app-guifier',

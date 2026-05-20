@@ -1,20 +1,20 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core'
-import { provideRouter } from '@angular/router'
-import { provideHttpClient } from '@angular/common/http'
-import { provideNzIcons } from 'ng-zorro-antd/icon'
-import { zh_CN, provideNzI18n } from 'ng-zorro-antd/i18n'
 import { registerLocaleData } from '@angular/common'
+import { provideHttpClient } from '@angular/common/http'
 import zh from '@angular/common/locales/zh'
+import { type ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core'
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
+import { provideRouter } from '@angular/router'
+import type { IconDefinition } from '@ant-design/icons-angular'
 import {
-  DeleteOutline,
-  PlusOutline,
-  FontSizeOutline,
-  NumberOutline,
   CheckOutline,
   CloseCircleOutline,
+  DeleteOutline,
+  FontSizeOutline,
+  NumberOutline,
+  PlusOutline,
 } from '@ant-design/icons-angular/icons'
-import type { IconDefinition } from '@ant-design/icons-angular'
+import { provideNzI18n, zh_CN } from 'ng-zorro-antd/i18n'
+import { provideNzIcons } from 'ng-zorro-antd/icon'
 
 registerLocaleData(zh)
 

@@ -1,8 +1,8 @@
-import { Component, input, output, computed } from '@angular/core'
-import { StringFieldComponent } from './string-field.component'
-import { NumberFieldComponent } from './number-field.component'
+import { Component, computed, input, output } from '@angular/core'
 import { BooleanFieldComponent } from './boolean-field.component'
 import { NullFieldComponent } from './null-field.component'
+import { NumberFieldComponent } from './number-field.component'
+import { StringFieldComponent } from './string-field.component'
 
 @Component({
   selector: 'app-field',
@@ -26,9 +26,15 @@ export class FieldComponent {
   readonly value = input.required<unknown>()
   readonly valueChange = output<unknown>()
 
-  readonly stringValue = computed(() => (typeof this.value() === 'string' ? this.value() : '') as string)
-  readonly numberValue = computed(() => (typeof this.value() === 'number' ? this.value() : 0) as number)
-  readonly booleanValue = computed(() => (typeof this.value() === 'boolean' ? this.value() : false) as boolean)
+  readonly stringValue = computed(
+    () => (typeof this.value() === 'string' ? this.value() : '') as string,
+  )
+  readonly numberValue = computed(
+    () => (typeof this.value() === 'number' ? this.value() : 0) as number,
+  )
+  readonly booleanValue = computed(
+    () => (typeof this.value() === 'boolean' ? this.value() : false) as boolean,
+  )
 
   isString(): boolean {
     return typeof this.value() === 'string'

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
-import { NzTagModule } from 'ng-zorro-antd/tag'
 import { NzIconModule } from 'ng-zorro-antd/icon'
+import { NzTagModule } from 'ng-zorro-antd/tag'
 
 @Component({
   selector: 'app-null-field',

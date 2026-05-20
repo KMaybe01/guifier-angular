@@ -1,14 +1,17 @@
-import { Component, input, output, forwardRef } from '@angular/core'
-import { NzCardModule } from 'ng-zorro-antd/card'
+import { Component, forwardRef, input, output } from '@angular/core'
 import { NzButtonModule } from 'ng-zorro-antd/button'
-import { NzIconModule } from 'ng-zorro-antd/icon'
+import { NzCardModule } from 'ng-zorro-antd/card'
 import { NzEmptyModule } from 'ng-zorro-antd/empty'
+import { NzIconModule } from 'ng-zorro-antd/icon'
 import { NzTypographyModule } from 'ng-zorro-antd/typography'
-import { FieldComponent } from '../fields/field.component'
-import { ObjectContainerComponent } from './object-container.component'
-import { CreateFieldButtonComponent, type CreateFieldOption } from '../create-field-button.component'
 import { isContainerValue, isPlainObject } from '@/app/utils/cn.utils'
 import type { GuifierData } from '@/app/utils/guifier.utils'
+import {
+  CreateFieldButtonComponent,
+  type CreateFieldOption,
+} from '../create-field-button.component'
+import { FieldComponent } from '../fields/field.component'
+import { ObjectContainerComponent } from './object-container.component'
 
 @Component({
   selector: 'app-array-container',

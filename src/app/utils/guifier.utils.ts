@@ -1,7 +1,7 @@
-import { load as loadYaml, dump as dumpYaml } from 'js-yaml'
-import { XMLParser, XMLBuilder } from 'fast-xml-parser'
-import cloneDeep from 'lodash-es/cloneDeep'
 import { TomlDocument, TomlFormat, stringify as tomlStringify } from '@decimalturn/toml-patch'
+import { XMLBuilder, XMLParser } from 'fast-xml-parser'
+import { dump as dumpYaml, load as loadYaml } from 'js-yaml'
+import cloneDeep from 'lodash-es/cloneDeep'
 
 export type GuifierData = Record<string, unknown> | unknown[]
 export type DataType = 'json' | 'yaml' | 'xml' | 'toml'
