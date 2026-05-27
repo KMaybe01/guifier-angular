@@ -21,7 +21,11 @@
       "recommended": false,
       "a11y": { "useButtonType": "off" },
       "complexity": { "noForEach": "warn", "useLiteralKeys": "off" },
-      "correctness": { "noUnusedImports": "error", "noUnusedVariables": "warn", "useExhaustiveDependencies": "warn" },
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "warn",
+        "useExhaustiveDependencies": "warn"
+      },
       "nursery": {},
       "performance": { "noAccumulatingSpread": "warn" },
       "style": {
