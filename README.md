@@ -14,24 +14,28 @@ An interactive front-end toolkit simplifying JSON, YAML, TOML, and XML data. Vis
 
 ## Tech Stack
 
-| Category     | Technology                            |
-| ------------ | ------------------------------------- |
-| Framework    | Angular 20                            |
-| UI Library   | ng-zorro-antd 20                      |
-| Build Tool   | Angular CLI / esbuild                 |
-| Language     | TypeScript 5.8                        |
-| Styling      | Tailwind CSS 3                        |
-| Code Editor  | CodeMirror 6                          |
-| State Mgmt   | Angular Signals                       |
-| Package Mgr  | pnpm                                  |
-| Linting      | ESLint 9                              |
-| Formatting   | Prettier 3                            |
-| Git Hooks    | Husky 9 + lint-staged                 |
+| Category       | Technology                            |
+| -------------- | ------------------------------------- |
+| Framework      | Angular 20                            |
+| UI Library     | ng-zorro-antd 20                      |
+| Build Tool     | Angular CLI / esbuild                 |
+| Language       | TypeScript 5.8                        |
+| Styling        | Tailwind CSS 3                        |
+| Code Editor    | CodeMirror 6                          |
+| State Mgmt     | Angular Signals                       |
+| Package Mgr    | bun                                   |
+| Linting        | Biome                                  |
+| Formatting     | Biome                                  |
+| Git Hooks      | Husky 9 + lint-staged                 |
+| CI/CD          | GitHub Actions                        |
 
 ## Project Structure
 
 ```
 guifier-angular/
+├── .github/
+│   └── workflows/
+│       └── ci.yml           # GitHub Actions CI pipeline
 ├── .husky/                  # Git hooks
 │   ├── pre-commit           # Runs lint-staged before commit
 │   └── commit-msg           # Validates commit message format
@@ -68,8 +72,7 @@ guifier-angular/
 │   ├── main.ts
 │   ├── index.html
 │   └── styles.css
-├── eslint.config.js         # ESLint flat config
-├── prettier.config.js       # Prettier configuration
+├── biome.json               # Biome configuration (lint + format)
 ├── .editorconfig            # Editor consistency
 ├── .lintstagedrc.js         # lint-staged configuration
 ├── tailwind.config.js       # Tailwind CSS config
@@ -84,7 +87,7 @@ guifier-angular/
 ### Prerequisites
 
 - Node.js >= 18
-- pnpm >= 9
+- bun >= 1
 
 ### Installation
 
@@ -94,14 +97,14 @@ git clone <repository-url>
 cd guifier-angular
 
 # Install dependencies
-pnpm install
+bun install
 ```
 
 ### Development
 
 ```bash
 # Start development server
-pnpm dev
+bun run dev
 
 # Open http://localhost:4200
 ```
@@ -110,7 +113,7 @@ pnpm dev
 
 ```bash
 # Production build
-pnpm build
+bun run build
 
 # Watch mode for development
 pnpm watch
@@ -120,27 +123,41 @@ pnpm watch
 
 | Script           | Description                                        |
 | ---------------- | -------------------------------------------------- |
-| `pnpm dev`       | Start development server                           |
-| `pnpm build`     | Type check and build for production                |
-| `pnpm watch`     | Build in watch mode                                |
-| `pnpm lint`      | Run ESLint with strict rules                       |
-| `pnpm lint:fix`  | Auto-fix ESLint issues                             |
-| `pnpm format`    | Format code with Prettier                          |
-| `pnpm format:check` | Check code formatting without modifying files  |
-| `pnpm type-check` | Run TypeScript type checking                      |
+| `bun run dev`       | Start development server                           |
+| `bun run build`     | Type check and build for production                |
+| `bun run watch`     | Build in watch mode                                |
+| `bun run lint`      | Run Biome with strict rules                        |
+| `bun run lint:fix`  | Auto-fix Biome issues                              |
+| `bun run format`    | Format code with Biome                             |
+| `bun run format:check` | Check code formatting without modifying files  |
+| `bun run type-check` | Run TypeScript type checking                      |
+
+## CI/CD
+
+The project uses **GitHub Actions** for continuous integration. On every push or pull request to `main`/`master`, the CI pipeline runs:
+
+| Step              | Description                                |
+| ----------------- | ------------------------------------------ |
+| `format:check`    | Ensures code formatting consistency        |
+| `lint`            | Runs Biome with strict rules               |
+| `type-check`      | Validates TypeScript types                 |
+| `build`           | Verifies production build succeeds         |
+
+The workflow file is located at `.github/workflows/ci.yml`.
 
 ## Code Quality
 
-### ESLint Rules
+### Biome Configuration
 
+Linting and formatting are handled by [Biome](https://biomejs.dev/).
+
+**Lint Rules:**
 - No unused variables (except prefixed with `_`)
+- No unused imports
 - Explicit `any` usage warned
-- No `console.log` (except `warn` and `error`)
-- `prefer-const` enforced
-- Strict equality (`===`) required
+- No non-null assertions (warned)
 
-### Prettier Configuration
-
+**Formatter Settings:**
 - Single quotes
 - No semicolons
 - Trailing commas (all)
@@ -183,14 +200,13 @@ refactor(guifier): simplify container logic
 Install the recommended extensions when prompted:
 
 - Angular Language Service
-- ESLint
-- Prettier
+- Biome
 - Tailwind CSS IntelliSense
 - Angular Essentials
 
 Settings are pre-configured for:
 - Format on save
-- ESLint auto-fix on save
+- Biome format on save
 - Organize imports on save
 
 ## License
