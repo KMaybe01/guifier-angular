@@ -1,8 +1,8 @@
-import { Component, input, type OnDestroy, type OnInit, signal } from '@angular/core'
+import { Component, input, OnDestroy, OnInit, signal } from '@angular/core'
 import { NzAlertModule } from 'ng-zorro-antd/alert'
 import { NzSpinModule } from 'ng-zorro-antd/spin'
-import type { SampleDataService } from '@/app/services/sample-data.service'
-import { type DataType, decode, encode, type GuifierData } from '@/app/utils/guifier.utils'
+import { SampleDataService } from '@/app/services/sample-data.service'
+import { DataType, decode, encode, GuifierData } from '@/app/utils/guifier.utils'
 import { CodeEditorComponent } from '../code-editor/code-editor.component'
 import { GuifierComponent } from '../guifier/guifier.component'
 

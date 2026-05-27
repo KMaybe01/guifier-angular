@@ -3,6 +3,9 @@ node_modules
 .pnp
 .pnp.js
 
+# Angular cache
+.angular/
+
 # Build output
 dist
 dist-ssr
@@ -41,3 +44,4 @@ coverage
 
 # TypeScript
 *.tsbuildinfo
+.angular

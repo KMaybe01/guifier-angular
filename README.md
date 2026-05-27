@@ -116,7 +116,7 @@ bun run dev
 bun run build
 
 # Watch mode for development
-pnpm watch
+bun run watch
 ```
 
 ## Scripts
